@@ -130,38 +130,60 @@ points = PackedVector3Array(-1.2053431, -0.1889889, -1.8575888, -1.0773945, 0.19
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_qgtqi")
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(-0.22414388, 0.5, -0.83651626, 0.12940957, 0.8660254, 0.4829629, 0.9659258, -3.0848692e-08, -0.25881907, 15, 43, 96)
+light_color = Color(0.60784316, 0.6392157, 0.49803922, 1)
+light_energy = 0.2
+shadow_enabled = true
+
 [node name="Geometry" type="Node3D" parent="WorldEnvironment"]
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="WorldEnvironment/Geometry"]
-transform = Transform3D(182.82368, 0, 0, 0, 1.6286395, 0, 0, 0, 196.33197, 0, -28.513737, -76.21655)
-mesh = SubResource("BoxMesh_qgtqi")
-skeleton = NodePath("")
+[node name="Scene" type="Node3D" parent="WorldEnvironment/Geometry"]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="WorldEnvironment/Geometry/MeshInstance3D2"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/Geometry/MeshInstance3D2/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_qgtqi")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="WorldEnvironment/Geometry"]
-transform = Transform3D(13.521231, 0, 0, 0, -0.09389987, 13.949942, 0, -0.9955816, -1.315711, 0, -33.256866, -13)
-mesh = SubResource("BoxMesh_qgtqi")
-skeleton = NodePath("")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="WorldEnvironment/Geometry/MeshInstance3D"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/Geometry/MeshInstance3D/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_qgtqi")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="WorldEnvironment/Geometry"]
+[node name="OmniLight3D" type="OmniLight3D" parent="WorldEnvironment/Geometry/Scene"]
 transform = Transform3D(-0.9659258, 1.1618074e-07, 0.25881913, 0.12940964, 0.86602545, 0.48296285, -0.22414388, 0.49999997, -0.8365164, 11.000107, -12.000008, -33)
 light_color = Color(1, 1, 0.02745098, 1)
 omni_range = 37.693
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment/Geometry"]
-transform = Transform3D(-0.22414388, 0.5, -0.83651626, 0.12940957, 0.8660254, 0.4829629, 0.9659258, -3.0779827e-08, -0.25881907, 15, 43, 96)
-light_color = Color(0.60784316, 0.6392157, 0.49803922, 1)
-light_energy = 0.2
-shadow_enabled = true
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="WorldEnvironment/Geometry/Scene"]
+transform = Transform3D(182.82368, 0, 0, 0, 1.6286395, 0, 0, 0, 196.33197, 0, -28.513737, -76.21655)
+mesh = SubResource("BoxMesh_qgtqi")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WorldEnvironment/Geometry/Scene/MeshInstance3D2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/Geometry/Scene/MeshInstance3D2/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_qgtqi")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WorldEnvironment/Geometry/Scene"]
+transform = Transform3D(13.521231, 0, 0, 0, -0.09389987, 13.949942, 0, -0.9955816, -1.315711, 0, -33.256866, -13)
+mesh = SubResource("BoxMesh_qgtqi")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WorldEnvironment/Geometry/Scene/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/Geometry/Scene/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_qgtqi")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="WorldEnvironment/Geometry/Scene"]
+transform = Transform3D(13.521231, 0, 0, 0, 0.8152491, 8.1144085, 0, -0.57911044, 11.423148, 0, -15.256868, 2)
+mesh = SubResource("BoxMesh_qgtqi")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WorldEnvironment/Geometry/Scene/MeshInstance3D3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/Geometry/Scene/MeshInstance3D3/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_qgtqi")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="WorldEnvironment/Geometry/Scene"]
+transform = Transform3D(13.521231, 0, 0, 0, -0.09389987, 13.949942, 0, -0.9955816, -1.315711, 10, -31.256866, -17)
+mesh = SubResource("BoxMesh_qgtqi")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WorldEnvironment/Geometry/Scene/MeshInstance3D4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/Geometry/Scene/MeshInstance3D4/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_qgtqi")
 
 [node name="4k" type="Node3D" parent="WorldEnvironment/Geometry"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 0)
@@ -241,26 +263,6 @@ node_b = NodePath("../../4K Arm 01R")
 [node name="MouseCapture" type="Node" parent="WorldEnvironment/Geometry/4k/4K Shell/Components"]
 script = ExtResource("5_i5e4g")
 debug = true
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="WorldEnvironment/Geometry"]
-transform = Transform3D(13.521231, 0, 0, 0, 0.8152491, 8.1144085, 0, -0.57911044, 11.423148, 0, -15.256868, 2)
-mesh = SubResource("BoxMesh_qgtqi")
-skeleton = NodePath("")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="WorldEnvironment/Geometry/MeshInstance3D3"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/Geometry/MeshInstance3D3/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_qgtqi")
-
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="WorldEnvironment/Geometry"]
-transform = Transform3D(13.521231, 0, 0, 0, -0.09389987, 13.949942, 0, -0.9955816, -1.315711, 10, -31.256866, -17)
-mesh = SubResource("BoxMesh_qgtqi")
-skeleton = NodePath("")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="WorldEnvironment/Geometry/MeshInstance3D4"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/Geometry/MeshInstance3D4/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_qgtqi")
 
 [connection signal="body_entered" from="WorldEnvironment/Geometry/4k/4K Shell" to="WorldEnvironment/Geometry/4k/4K Shell" method="_on_body_entered"]
 [connection signal="body_entered" from="WorldEnvironment/Geometry/4k/4K Shell/CameraController/4K Arm 01R" to="WorldEnvironment/Geometry/4k/4K Shell/CameraController/4K Arm 01R" method="_on_body_entered"]
