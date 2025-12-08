@@ -166,7 +166,7 @@ skeleton = NodePath("")
 shape = SubResource("ConvexPolygonShape3D_qgtqi")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="WorldEnvironment/Geometry/Scene"]
-transform = Transform3D(13.521231, 0, 0, 0, 0.8152491, 8.1144085, 0, -0.57911044, 11.423148, 0, -15.256868, 2)
+transform = Transform3D(13.521231, 0, 0, 0, 0.8152491, 8.1144085, 0, -0.57911044, 11.423148, 0, -15.256868, 12)
 mesh = SubResource("BoxMesh_qgtqi")
 skeleton = NodePath("")
 
@@ -188,13 +188,15 @@ shape = SubResource("ConvexPolygonShape3D_qgtqi")
 [node name="4k" type="Node3D" parent="WorldEnvironment/Geometry"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 0)
 
-[node name="4K Shell" type="RigidBody3D" parent="WorldEnvironment/Geometry/4k"]
+[node name="4K Shell" type="RigidBody3D" parent="WorldEnvironment/Geometry/4k" node_paths=PackedStringArray("camera3d")]
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_6lfjr")
+debug = true
+camera3d = NodePath("CameraController")
 
 [node name="Shell" type="MeshInstance3D" parent="WorldEnvironment/Geometry/4k/4K Shell"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8, 0)
@@ -222,6 +224,7 @@ component_mouse_capture = NodePath("../Components/MouseCapture")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0)
 contact_monitor = true
 max_contacts_reported = 1
+constant_force = Vector3(1.06, 0, 0)
 script = ExtResource("3_qd0o6")
 
 [node name="Arms_001" type="MeshInstance3D" parent="WorldEnvironment/Geometry/4k/4K Shell/CameraController/4K Arm 01R"]
@@ -242,6 +245,7 @@ node_b = NodePath("../../4K Arm 02L")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0)
 contact_monitor = true
 max_contacts_reported = 1
+constant_force = Vector3(1.04, 0, 0)
 script = ExtResource("4_i5e4g")
 
 [node name="Arms_002" type="MeshInstance3D" parent="WorldEnvironment/Geometry/4k/4K Shell/CameraController/4K Arm 02L"]
